@@ -25,7 +25,10 @@ BLYNK_WRITE(V7)
   Serial.println(pinValue);
 
   if(pinValue == 1){
+  pinMode(D5, OUTPUT);
   digitalWrite(D5, HIGH);
+  delay(100);
+  digitalWrite(D5, LOW);
   pset++;
   Blynk.virtualWrite(V6, pset);
   }
@@ -42,12 +45,16 @@ BLYNK_WRITE(V8)
   Serial.println(pinValue2);
 
   if(pinValue2 == 1){
-  digitalWrite(D5, HIGH);
+    pinMode(D6, OUTPUT);
+  digitalWrite(D6, HIGH);
+  delay(100);
+  digitalWrite(D6, LOW);
+
   pset--;
   Blynk.virtualWrite(V6, pset);
   }
   else{
-   digitalWrite(D5, LOW);
+   digitalWrite(D6, LOW);
     }
   
   // process received value
